@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.popup{
+    width: 40%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px;
+    background-color: rgb(217, 217, 217);
+    position: fixed;
+}
+
+.popup form *{
+    width: 80%;
+    margin: 3% 10%;
+}
+.popup form h1{
+    margin: 5% 40%;
+}
+.popup form input{
+    padding: 10px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    font-size: 15px;
+}
+.popup form .submitBtn{
+    padding: 10px;
+    margin: 5% 35%;
+    width: 30%;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+}
+
+.submitBtn:hover{
+    cursor: pointer;
+}

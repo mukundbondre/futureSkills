@@ -1,17 +1,48 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import './App.css';
 import Popup from './Popup';
+import axios from 'axios';
 
 function App() {
 
-  const [popup, setPopup] = useState(false)
+  const [popup, setPopup] = useState(false);
+  const [data, setData] = useState([]);
+  const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    axios.get("http://localhost:8080/cards").then((res) => {
+      console.log(res.data);
+      setData(res.data);
+    }).catch((error) => {
+      console.log(error);
+    })
+  }, [popup])
+
   const handelClick = (e) => {
     e.preventDefault();
     setPopup(true)
   }
+
+  const row = data.filter((item) => {
+    return search.toLowerCase() === '' ? item : item.title.toLowerCase().includes(search);
+  }).map((e) => {
+    return (
+      <tr key={e.id}>
+        <td>{e.title}</td>
+        <td>{e.description}</td>
+        <td>{e.link}</td>
+      </tr>
+    )
+  })
   return (
     <div className='container'>
-      <button onClick={handelClick} className='addData'>add data</button>
+      <div className='search'>
+        <input type='text'
+          placeholder='Search Title'
+          onChange={(e) => { setSearch(e.target.value) }}
+        />
+        <button onClick={handelClick} className='addBtn'>Add Data</button>
+      </div>
       <div className='table'>
         <table>
           <thead>
@@ -22,15 +53,11 @@ function App() {
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td>title1</td>
-              <td>description1</td>
-              <td>link1</td>
-            </tr>
+            {row}
           </tbody>
         </table>
       </div>
-      {popup?<Popup setPopup={setPopup}/>:null}
+      {popup ? <Popup setPopup={setPopup} /> : null}
     </div>
   );
 }

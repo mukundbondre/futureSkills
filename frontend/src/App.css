@@ -2,81 +2,48 @@
     margin: 0;
     padding: 0;
 }
-.container{
-    height: 100vh;
-    width: 100%;
-    position: absolute;
-}
 
-.container .addData{
-    background-color: rgb(170, 170, 170);
-    padding: 15px 10px;
-    width: 200px;
-    position: absolute;
-    top: 30px;
-    right: 200px;
-}
-.container .table{
-    width: 70%;
-    height: 70%;
-    margin: 10% auto;
-    overflow: auto;
-}
-.container .table tbody *{
-    font-size: 20px;
-    width: 10%;
-    border: 1px solid black;
-}
-
-.container .table thead{
-    width: 70%;
-    height: 70%;
-    margin:8% auto;
-    overflow: auto;
-    position: fixed;
-    top: 0;
-}
-.container .table thead *{
-    font-size: 20px;
-    width: 10%;
-    border: 1px solid black;
-}
-
-
-
-
-
-.popup{
-    height: 80%;
-    width: 60%;
-    border-radius: 20px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    box-shadow: 1px 1px 10px;
-    background-color: rgb(170, 170, 170);
-}
-.popup form input, button{
+.container .search{
     width: 80%;
-    margin: 20px;
-    margin-left: 65px;
-    padding: 20px;
-    font-size: 20px;
-    border: none;
-    border-radius: 20px;
-    outline: none;
+    margin: 5% auto;
 }
-
-.popup form h1{
-    font-size: 30px;
-    text-align: center;
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-.popup form button{
+.container .search *{
     padding: 10px;
-    background-color: rgb(122, 122, 255);
-    margin-left: 80px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px;
+}
+.container .search input{
+    width: 80%;
+}
+
+.container .search .addBtn{
+    width: 10%;
+    float: right;
+}
+
+.container .table{
+    width: 80%;
+    margin: 5% auto;
+    padding: 20px;
+    font-size: 15px;
+    border: none;
+    outline: none;
+    border-radius: 10px;
+    box-shadow: 1px 1px 10px;
+}
+.container .table tr *{
+    border: 1px solid black;
+    width: 500px;
+    padding: 10px;
+    text-align: center;
+}
+.container .table tr{
+    border: 1px solid black;
+}
+
+.addBtn:hover{
+    cursor: pointer;
 }
