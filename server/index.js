@@ -24,11 +24,7 @@ app.get("/ping", async (req, res) => {
     const db = client.db('futureSkills-database');
     const collection = db.collection('futureSkills-collection');
     const items = await collection.find().toArray();
-    if(items){
-      res.send("database connect successfully");
-    }else{
-      res.send("database is not connected");
-    }
+    res.send("sever is running..")
   } catch (err) {
     res.status(500).json({ message: err.message });
   }

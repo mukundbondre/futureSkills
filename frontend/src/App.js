@@ -23,41 +23,61 @@ function App() {
     setPopup(true)
   }
 
-  const row = data.filter((item) => {
-    return search.toLowerCase() === '' ? item : item.title.toLowerCase().includes(search);
-  }).map((e) => {
-    return (
-      <tr key={e.id}>
-        <td>{e.title}</td>
-        <td>{e.description}</td>
-        <td>{e.link}</td>
-      </tr>
-    )
-  })
   return (
     <div className='container'>
+      <div className='header'>
+        <p>Abstract | Help center</p>
+        <button onClick={handelClick} className='addBtn'>Submit a request</button>
+      </div>
       <div className='search'>
         <input type='text'
           placeholder='Search Title'
           onChange={(e) => { setSearch(e.target.value) }}
         />
-        <button onClick={handelClick} className='addBtn'>Add Data</button>
       </div>
-      <div className='table'>
-        <table>
-          <thead>
-            <tr>
-              <th>Title</th>
-              <th>Description</th>
-              <th>Link</th>
-            </tr>
-          </thead>
-          <tbody>
-            {row}
-          </tbody>
-        </table>
+      {
+        data.filter((item) => {
+          return search.toLowerCase() === '' ? item : item.title.toLowerCase().includes(search);
+        }).map((e) => {
+          return (
+            <div className='card'>
+              <h3>{e.title}</h3>
+              <p>{e.description}</p>
+            </div>
+          )
+        })
+      }
+      <div className='footer'>
+        <div>
+          <h2>Abstract</h2>
+          <p>Branches</p>
+        </div>
+        <div>
+          <h2>Resources</h2>
+          <p>Blog</p>
+          <p>Help center</p>
+          <p>Release Notes</p>
+          <p>Status</p>
+        </div>
+        <div>
+          <h2>Community</h2>
+          <p>Twitter</p>
+          <p>Linked In</p>
+          <p>Facebook</p>
+          <p>Instagram</p>
+        </div>
+        <div>
+          <h2>Company</h2>
+          <p>About Us</p>
+          <p>Careers</p>
+        </div>
+        <div>
+          <h2>Contact</h2>
+          <a>mukundbondre41@gmail.com</a>
+          <p>+91 96654-88242</p>
+        </div>
       </div>
-      {popup ? <Popup setPopup={setPopup} /> : null}
+      {popup ? <Popup setPopup={setPopup} /> : null}      
     </div>
   );
 }
